@@ -1,0 +1,7 @@
+<advancedpdftemplate scriptid="custtmpl_sik_credit_memo" standard="STDTMPLCUSTCRED">
+  <description></description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <title>SIK | Credit Memo PDF/HTML Template</title>
+</advancedpdftemplate>

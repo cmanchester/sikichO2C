@@ -1,0 +1,79 @@
+<entryForm scriptid="custform_sik_planned_revenue" standard="STANDARDPLANNEDREVENUEFORM">
+  <name>SIK | Planned Revenue</name>
+  <recordType>PLANNEDREVENUE</recordType>
+  <inactive>F</inactive>
+  <preferred>T</preferred>
+  <storedWithRecord>T</storedWithRecord>
+  <mainFields>
+    <fieldGroup scriptid="primaryinformation">
+      <label>Primary Information</label>
+      <visible>T</visible>
+      <showTitle>T</showTitle>
+      <singleColumn>F</singleColumn>
+      <fields position="MIDDLE">
+        <field>
+          <id>CUSTOMFORM</id>
+          <label>Custom Form</label>
+          <visible>T</visible>
+          <mandatory>F</mandatory>
+          <displayType>NORMAL</displayType>
+          <columnBreak>F</columnBreak>
+          <sameRowAsPrevious>F</sameRowAsPrevious>
+        </field>
+        <field>
+          <id>NAME</id>
+          <label>Name</label>
+          <visible>T</visible>
+          <mandatory>F</mandatory>
+          <displayType>NORMAL</displayType>
+          <columnBreak>F</columnBreak>
+          <sameRowAsPrevious>F</sameRowAsPrevious>
+        </field>
+        <field>
+          <id>DESCRIPTION</id>
+          <label>Description</label>
+          <visible>T</visible>
+          <mandatory>F</mandatory>
+          <displayType>NORMAL</displayType>
+          <columnBreak>F</columnBreak>
+          <sameRowAsPrevious>F</sameRowAsPrevious>
+        </field>
+        <field>
+          <id>PLANNEDPERIOD</id>
+          <label>Planned Period</label>
+          <visible>T</visible>
+          <mandatory>F</mandatory>
+          <displayType>NORMAL</displayType>
+          <columnBreak>F</columnBreak>
+          <sameRowAsPrevious>F</sameRowAsPrevious>
+        </field>
+        <field>
+          <id>AMOUNT</id>
+          <label>Amount</label>
+          <visible>T</visible>
+          <mandatory>F</mandatory>
+          <displayType>NORMAL</displayType>
+          <columnBreak>F</columnBreak>
+          <sameRowAsPrevious>F</sameRowAsPrevious>
+        </field>
+      </fields>
+    </fieldGroup>
+    <defaultFieldGroup/>
+  </mainFields>
+  <tabs>
+    <tab>
+      <id>OTHERWORKFLOW</id>
+      <label>Workflow</label>
+      <visible>T</visible>
+      <fieldGroups>
+        <defaultFieldGroup/>
+      </fieldGroups>
+      <subItems/>
+    </tab>
+  </tabs>
+  <quickViewFields/>
+  <actionbar>
+    <buttons/>
+    <menu/>
+  </actionbar>
+</entryForm>

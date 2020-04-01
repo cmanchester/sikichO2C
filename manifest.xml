@@ -1,0 +1,27 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>sikichO2C</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="false">WEBSTORE</feature>
+      <feature required="true">RETURNAUTHS</feature>
+      <feature required="false">ADVRECEIVING</feature>
+      <feature required="false">TIMETRACKING</feature>
+      <feature required="false">OPPORTUNITIES</feature>
+      <feature required="true">ADDRESSCUSTOMIZATION</feature>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="false">WEBSERVICES</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+      <feature required="true">SALESORDERS</feature>
+      <feature required="false">PAYABLES</feature>
+      <feature required="false">IPADDRESSRULES</feature>
+      <feature required="false">RECEIVABLES</feature>
+      <feature required="false">EXPREPORTS</feature>
+      <feature required="true">ADVANCEDPRINTING</feature>
+      <feature required="false">ACCOUNTING</feature>
+      <feature required="true">CRM</feature>
+      <feature required="true">WORKFLOW</feature>
+      <feature required="false">WEBSITE</feature>
+    </features>
+  </dependencies>
+</manifest>

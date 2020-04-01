@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AccountsInformationState">
+    <option name="accountsInformation">
+      <Toplevel>
+        <option name="molecules">
+          <Molecules>
+            <option name="molecule">
+              <array>
+                <Molecule>
+                  <option name="UUID" value="587c1ce9-2c44-4c66-ad3d-d896838b015d" />
+                  <option name="description" value="Production" />
+                  <option name="url" value="system.netsuite.com" />
+                </Molecule>
+                <Molecule>
+                  <option name="UUID" value="fc527317-9852-4c8c-ba83-b292efb5055b" />
+                  <option name="description" value="Sandbox" />
+                  <option name="url" value="system.sandbox.netsuite.com" />
+                </Molecule>
+              </array>
+            </option>
+          </Molecules>
+        </option>
+        <option name="sdkSettings">
+          <SdkSettings>
+            <option name="moleculeSettings">
+              <MoleculeSettings>
+                <option name="moleculeSetting">
+                  <array>
+                    <MoleculeSetting>
+                      <option name="accounts">
+                        <Accounts>
+                          <option name="account">
+                            <array>
+                              <Account>
+                                <option name="companies">
+                                  <Companies>
+                                    <option name="company">
+                                      <array>
+                                        <Company>
+                                          <option name="UUID" value="96314356-c904-42ce-82be-ad3fa4d69403" />
+                                          <option name="accountType" value="PRODUCTION" />
+                                          <option name="id" value="TSTDRV2203425" />
+                                          <option name="name" value="Sikich O2C Best Practices" />
+                                          <option name="restDomain" value="tstdrv2203425.restlets.api.netsuite.com" />
+                                          <option name="roles">
+                                            <Roles>
+                                              <option name="role">
+                                                <array>
+                                                  <Role>
+                                                    <option name="name" value="Administrator" />
+                                                    <option name="nkey" value="3" />
+                                                    <option name="tokenId" value="1a4d6f66b8ea832050209426e24e78c9f88e23a2fc3d0a76a316a47f15c6d27fb1f3149188a1503ce7e3fd3df935eb1df1284e5c3a7907fa36bc63deaee629d7fb5057a3c8815331dd9778d0ea0737fc" />
+                                                    <option name="tokenSecret" value="8b7b3877033100d059d4362c5161da88b96cb9f44662ffa1a22bd0b9a1527864b0db682a17ed386eb2dac34a41754025048f7099cd83a6fabd5cf29827948e8dfb5057a3c8815331dd9778d0ea0737fc" />
+                                                  </Role>
+                                                  <Role>
+                                                    <option name="name" value="SIK | Billing Analyst" />
+                                                    <option name="nkey" value="1002" />
+                                                  </Role>
+                                                  <Role>
+                                                    <option name="name" value="SIK | Revenue Accountant" />
+                                                    <option name="nkey" value="1000" />
+                                                  </Role>
+                                                  <Role>
+                                                    <option name="name" value="SIK | Sales Operations" />
+                                                    <option name="nkey" value="1001" />
+                                                  </Role>
+                                                  <Role>
+                                                    <option name="name" value="SIK | Treasury" />
+                                                    <option name="nkey" value="1003" />
+                                                  </Role>
+                                                </array>
+                                              </option>
+                                            </Roles>
+                                          </option>
+                                          <option name="systemDomain" value="tstdrv2203425.app.netsuite.com" />
+                                          <option name="webservicesDomain" value="tstdrv2203425.suitetalk.api.netsuite.com" />
+                                        </Company>
+                                        <Company>
+                                          <option name="UUID" value="b55fd8d7-4027-4fcb-ac75-f21615caabb7" />
+                                          <option name="accountType" value="PRODUCTION" />
+                                          <option name="id" value="TSTDRV2246247" />
+                                          <option name="name" value="Sikich O2C Demo" />
+                                          <option name="restDomain" value="tstdrv2246247.restlets.api.netsuite.com" />
+                                          <option name="roles">
+                                            <Roles>
+                                              <option name="role">
+                                                <array>
+                                                  <Role>
+                                                    <option name="name" value="Administrator" />
+                                                    <option name="nkey" value="3" />
+                                                    <option name="tokenId" value="497f0afb34c31ee83cfcde0b4875f9b8fbf98a1828f2c637a907131ad86b69f7293165d48fead7e33116209ac4110fcdbec7c340abb78970ac654a63667b9cb9fb5057a3c8815331dd9778d0ea0737fc" />
+                                                    <option name="tokenSecret" value="6b58b63c29112ee47fe60b01d35921098ab7cb740ee4086a10f0abff45299b25bfb8ba07b1f90b85df6d2b3fa7e258337d79e75cfd2feb74f08ee725360c52f9fb5057a3c8815331dd9778d0ea0737fc" />
+                                                  </Role>
+                                                </array>
+                                              </option>
+                                            </Roles>
+                                          </option>
+                                          <option name="systemDomain" value="tstdrv2246247.app.netsuite.com" />
+                                          <option name="webservicesDomain" value="tstdrv2246247.suitetalk.api.netsuite.com" />
+                                        </Company>
+                                      </array>
+                                    </option>
+                                  </Companies>
+                                </option>
+                                <option name="email" value="christopher.manchester@sikich.com" />
+                                <option name="password" value="eb687f914e083eca6aec65129799cf90793698cff5a7f4ec3acbb578d908dd4b" />
+                              </Account>
+                            </array>
+                          </option>
+                        </Accounts>
+                      </option>
+                      <option name="molecule">
+                        <Molecule>
+                          <option name="UUID" value="587c1ce9-2c44-4c66-ad3d-d896838b015d" />
+                        </Molecule>
+                      </option>
+                    </MoleculeSetting>
+                  </array>
+                </option>
+              </MoleculeSettings>
+            </option>
+          </SdkSettings>
+        </option>
+      </Toplevel>
+    </option>
+    <option name="projectSettings">
+      <ProjectSettings>
+        <option name="accountRoleId" value="3" />
+        <option name="accountUUID" value="96314356-c904-42ce-82be-ad3fa4d69403" />
+        <option name="applyContentProtection" value="false" />
+      </ProjectSettings>
+    </option>
+  </component>
+</project>

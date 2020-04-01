@@ -1,0 +1,7 @@
+<advancedpdftemplate scriptid="custtmpl_sik_invoice" standard="STDTMPLCUSTINVC">
+  <description></description>
+  <displaysourcecode>F</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <title>SIK | Invoice PDF/HTML Template</title>
+</advancedpdftemplate>

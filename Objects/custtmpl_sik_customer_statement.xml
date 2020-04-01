@@ -1,0 +1,7 @@
+<advancedpdftemplate scriptid="custtmpl_sik_customer_statement" standard="STDTMPLSTATEMENT">
+  <description></description>
+  <displaysourcecode>F</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>F</preferred>
+  <title>SIK | Statement PDF/HTML Template</title>
+</advancedpdftemplate>

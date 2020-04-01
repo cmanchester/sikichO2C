@@ -1,0 +1,7 @@
+<advancedpdftemplate scriptid="custtmpl_sik_cash_sale" standard="STDTMPLCASHSALE">
+  <description></description>
+  <displaysourcecode>F</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <title>SIK | Cash Sale PDF/HTML Template</title>
+</advancedpdftemplate>

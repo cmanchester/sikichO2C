@@ -1,0 +1,381 @@
+<workflow scriptid="customworkflow_sik_invoice_periods">
+  <description></description>
+  <initcontexts></initcontexts>
+  <initeventtypes></initeventtypes>
+  <initoncreate>T</initoncreate>
+  <initonvieworupdate>F</initonvieworupdate>
+  <initsavedsearchcondition></initsavedsearchcondition>
+  <inittriggertype></inittriggertype>
+  <isinactive>F</isinactive>
+  <islogenabled>T</islogenabled>
+  <keephistory>ALWAYS</keephistory>
+  <name>SIK | Invoice Periods</name>
+  <recordtypes>INVOICE|SALESORDER</recordtypes>
+  <releasestatus>RELEASED</releasestatus>
+  <runasadmin>T</runasadmin>
+  <initcondition>
+    <formula></formula>
+    <type>VISUAL_BUILDER</type>
+  </initcondition>
+  <workflowstates>
+    <workflowstate scriptid="workflowstate7">
+      <description></description>
+      <donotexitworkflow>T</donotexitworkflow>
+      <name>Set Fields</name>
+      <positionx>243</positionx>
+      <positiony>133</positiony>
+      <workflowactions triggertype="BEFORELOAD">
+        <workflowsublistactiongroup scriptid="workflowaction27">
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes></contexttypes>
+          <eventtypes></eventtypes>
+          <isinactive>F</isinactive>
+          <scheduledelay></scheduledelay>
+          <schedulemode>DELAY</schedulemode>
+          <schedulerecurrence></schedulerecurrence>
+          <scheduletimeofday></scheduletimeofday>
+          <scheduletimeunit></scheduletimeunit>
+          <sublist>ITEM</sublist>
+          <initcondition>
+            <formula><![CDATA["Type" IN ("Transaction Type1")]]></formula>
+            <type>VISUAL_BUILDER</type>
+            <parameters>
+              <parameter>
+                <name>Type</name>
+                <value>STDBODYTRANTYPE</value>
+              </parameter>
+              <parameter>
+                <name>Transaction Type1</name>
+                <selectrecordtype>-100</selectrecordtype>
+                <value>INVOICE</value>
+              </parameter>
+            </parameters>
+          </initcondition>
+          <setfieldvalueaction scriptid="workflowaction28">
+            <field>[scriptid=custcol_sik_number_of_invoices]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield></valuefield>
+            <valueformula>case when {line.custcol_sik_invoice_count} = 0 then 1 else {line.custcol_sik_invoice_count} end</valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FORMULA</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1") AND "Line:SO Line Amount" != 0.00]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:SO Line Amount</name>
+                  <value>[scriptid=custcol_sik_so_line_amount]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction29">
+            <field>[scriptid=custcol_sik_scheduled_invoice_date]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield>STDBODYTRANDATE</valuefield>
+            <valueformula></valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FIELD</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1") AND "Line:SO Line Amount" != 0.00]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:SO Line Amount</name>
+                  <value>[scriptid=custcol_sik_so_line_amount]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction30">
+            <field>[scriptid=custcol_sik_invoice_number]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield></valuefield>
+            <valueformula>ROUND(((({line.custcol_sik_scheduled_invoice_date}-{line.custcol_sik_billing_start_date})/({enddate}-{custbody_sik_contract_start_date}))*{line.custcol_sik_number_of_invoices})+1,0)</valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FORMULA</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1") AND "Line:SO Line Amount" != 0.00 AND isChecked("Line:In Arrears") = 'F']]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:SO Line Amount</name>
+                  <value>[scriptid=custcol_sik_so_line_amount]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:In Arrears</name>
+                  <value>[scriptid=custcol_sik_in_arrears]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction31">
+            <field>[scriptid=custcol_sik_invoice_number]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield></valuefield>
+            <valueformula>ROUND(((({line.custcol_sik_scheduled_invoice_date}-({line.custcol_sik_billing_start_date}+Round(({enddate}-{custbody_sik_contract_start_date})/{line.custcol_sik_invoice_count},0)))/({enddate}-{custbody_sik_contract_start_date}))*{line.custcol_sik_number_of_invoices})+1,0)</valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FORMULA</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1") AND "Line:SO Line Amount" != 0.00 AND isChecked("Line:In Arrears") = 'T']]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:SO Line Amount</name>
+                  <value>[scriptid=custcol_sik_so_line_amount]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:In Arrears</name>
+                  <value>[scriptid=custcol_sik_in_arrears]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+        </workflowsublistactiongroup>
+      </workflowactions>
+      <workflowactions triggertype="AFTERSUBMIT">
+        <workflowsublistactiongroup scriptid="workflowaction21">
+          <conditionsavedsearch></conditionsavedsearch>
+          <contexttypes></contexttypes>
+          <eventtypes></eventtypes>
+          <isinactive>F</isinactive>
+          <scheduledelay></scheduledelay>
+          <schedulemode>DELAY</schedulemode>
+          <schedulerecurrence></schedulerecurrence>
+          <scheduletimeofday></scheduletimeofday>
+          <scheduletimeunit></scheduletimeunit>
+          <sublist>ITEM</sublist>
+          <initcondition>
+            <formula><![CDATA["Type" IN ("Transaction Type1") AND "Status" IN ("Transaction Status1","Transaction Status2","Transaction Status3")]]></formula>
+            <type>VISUAL_BUILDER</type>
+            <parameters>
+              <parameter>
+                <name>Type</name>
+                <value>STDBODYTRANTYPE</value>
+              </parameter>
+              <parameter>
+                <name>Transaction Type1</name>
+                <selectrecordtype>-100</selectrecordtype>
+                <value>SALESORDER</value>
+              </parameter>
+              <parameter>
+                <name>Status</name>
+                <value>STDBODYSTATUS</value>
+              </parameter>
+              <parameter>
+                <name>Transaction Status1</name>
+                <selectrecordtype>-164</selectrecordtype>
+                <value>16</value>
+              </parameter>
+              <parameter>
+                <name>Transaction Status2</name>
+                <selectrecordtype>-164</selectrecordtype>
+                <value>15</value>
+              </parameter>
+              <parameter>
+                <name>Transaction Status3</name>
+                <selectrecordtype>-164</selectrecordtype>
+                <value>12</value>
+              </parameter>
+            </parameters>
+          </initcondition>
+          <setfieldvalueaction scriptid="workflowaction22">
+            <field>[scriptid=custcol_sik_billing_start_date]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield>[scriptid=custbody_sik_contract_start_date]</valuefield>
+            <valueformula></valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FIELD</valuetype>
+            <initcondition>
+              <formula><![CDATA[isEmpty("Contract Start Date") = 'F' AND "Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1")]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Contract Start Date</name>
+                  <value>[scriptid=custbody_sik_contract_start_date]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction23">
+            <field>[scriptid=custcol_sik_billing_start_date]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield>STDBODYTRANDATE</valuefield>
+            <valueformula></valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FIELD</valuetype>
+            <initcondition>
+              <formula><![CDATA[isEmpty("Contract Start Date") = 'T' AND "Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1")]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Contract Start Date</name>
+                  <value>[scriptid=custbody_sik_contract_start_date]</value>
+                </parameter>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction24">
+            <field>[scriptid=custcol_sik_so_line_amount]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield>STDCOLAMOUNT</valuefield>
+            <valueformula></valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FIELD</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1")]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction25">
+            <field>[scriptid=custcol_sik_so_line_quantity]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield>STDCOLQUANTITY</valuefield>
+            <valueformula></valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FIELD</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1")]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+          <setfieldvalueaction scriptid="workflowaction26">
+            <field>[scriptid=custcol_sik_billing_schedule_calculat]</field>
+            <isinactive>F</isinactive>
+            <valuechecked>F</valuechecked>
+            <valuedate></valuedate>
+            <valuefield></valuefield>
+            <valueformula>{line.billingschedule.id}</valueformula>
+            <valuejoinfield></valuejoinfield>
+            <valueselect></valueselect>
+            <valuetext></valuetext>
+            <valuetype>FORMULA</valuetype>
+            <initcondition>
+              <formula><![CDATA["Line:Item:Revenue Recognition Rule" IN ("Revenue Recognition Rule1")]]></formula>
+              <type>VISUAL_BUILDER</type>
+              <parameters>
+                <parameter>
+                  <name>Line:Item:Revenue Recognition Rule</name>
+                  <value>STDCOLITEM:STDITEMREVENUERECOGNITIONRULE</value>
+                </parameter>
+                <parameter>
+                  <name>Revenue Recognition Rule1</name>
+                  <selectrecordtype>-357</selectrecordtype>
+                  <value>[ACCOUNT_SPECIFIC_VALUE]</value>
+                </parameter>
+              </parameters>
+            </initcondition>
+          </setfieldvalueaction>
+        </workflowsublistactiongroup>
+      </workflowactions>
+    </workflowstate>
+  </workflowstates>
+</workflow>

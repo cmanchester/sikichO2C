@@ -1,0 +1,7 @@
+<advancedpdftemplate scriptid="custtmpl_sik_sales_order" standard="STDTMPLSALESORD">
+  <description></description>
+  <displaysourcecode>F</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>T</preferred>
+  <title>SIK | Sales Order PDF/HTML Template</title>
+</advancedpdftemplate>

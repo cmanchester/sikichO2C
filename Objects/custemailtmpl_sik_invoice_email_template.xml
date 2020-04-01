@@ -1,0 +1,11 @@
+<emailtemplate scriptid="custemailtmpl_sik_invoice_email_template">
+  <addcompanyaddress>T</addcompanyaddress>
+  <addunsubscribelink>T</addunsubscribelink>
+  <description></description>
+  <isinactive>F</isinactive>
+  <isprivate>F</isprivate>
+  <name>SIK | Invoice Email Template</name>
+  <recordtype>TRANSACTION</recordtype>
+  <subject>${transaction.subsidiary}: Invoice #${transaction.tranId}</subject>
+  <usesmedia>F</usesmedia>
+</emailtemplate>
